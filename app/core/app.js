@@ -10,7 +10,27 @@ var SimpleApp = angular.module('SimpleApp', [
 ]);
 
 
-SimpleApp.run(['$rootScope', '$http', 'ngDialog', function ($rootScope, $http, ngDialog) {
+SimpleApp.run(['$rootScope', '$http', 'ngDialog', 'Api', function ($rootScope, $http, ngDialog, Api) {
+  $rootScope.isLoggedIn = false
+
+  $rootScope.logOut = function () {
+    Api.session.destroy({}, function () {
+      $rootScope.isLoggedIn = false;
+    }, function () {
+      $rootScope.isLoggedIn = false;
+    });
+  }
+
+  $rootScope.checkSessionStatus = function () {
+    Api.session.read({}, function () {
+      $rootScope.isLoggedIn = true;
+    }, function () {
+      $rootScope.isLoggedIn = false;
+    });
+  }
+
+  $rootScope.checkSessionStatus();
+
   // dialogs
   $rootScope.$on( "$routeChangeStart", function (event, next, current) {
     ngDialog.closeAll();

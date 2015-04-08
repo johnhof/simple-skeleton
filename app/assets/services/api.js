@@ -30,6 +30,7 @@ SimpleApp.service('Api', ['$http', '$resource', function ($http, $resource) {
   api.session = $resource('/session', null,  {
     create  : { method : 'POST' },
     read    : { method : 'GET' },
+    destroy : { method : 'DELETE' },
   });
 
   return api;

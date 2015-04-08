@@ -11,7 +11,6 @@ SimpleApp.controller('HomeCtrl', ['$scope', 'Api', function ($scope, Api) {
 
   // define users request
   $scope.search = function (name) {
-    console.log('searching')
     Api.users.read({
       q : name
     }, function (result) {
