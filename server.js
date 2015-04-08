@@ -7,6 +7,7 @@ var json         = require('express-json');
 var bodyParser   = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session      = require('express-session');
+var cookieSession = require('cookie-session')
 
 module.exports = startServer;
 // if this is a test, dont run the setup functions
@@ -58,11 +59,14 @@ function startServer (portOverride, suppressLogs) {
   server.use(json());
   server.use(bodyParser.urlencoded({ extended: true }));
   server.use(bodyParser.json());
-  server.use(cookieParser());
+  server.use(cookieParser(server.config.secret));
   server.use(session({
-    secret: 'E276844C7C0B0827E05E9FDD6ED72D98',
+    secret: server.config.secret,
     saveUninitialized: true,
-    resave: true
+    resave: true,
+    cookie : {
+      expires:  new Date(Date.now() + server.config.sessionLength)
+    }
   }));
 
   // Deliver the static files defined in the config

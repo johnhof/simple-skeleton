@@ -14,4 +14,12 @@ var headerCtrl = angular.module('SimpleApp').controller('HeaderCtrl', ['$scope',
   }
 
   $scope.checkSessionStatus();
+
+
+  // handle page load scrolling
+  $scope.$on('$routeChangeSuccess', function () {
+
+    // close the open nav bar on route change
+    angular.element('.navbar-toggle:not(.collapsed)').trigger('click');
+  });
 }]);

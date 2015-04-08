@@ -1,9 +1,7 @@
 {
   "port" : 9000,
-  "github_auth" : {
-    "clientId" : "8540d0f315388928db85",
-    "clientSecret" : "7fb1e2d9ae244478b2c11bfed07b06e4e077d15d"
-  },
+  "secret" : "E276844C7C0B0827E05E9FDD6ED72D98",
+  "sessionLength" : 3600000,
   "path" : {
     "app"   : "app",
     "bower" : "bower_components",
