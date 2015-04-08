@@ -1,0 +1,220 @@
+@import 'variables';
+
+html, body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  overflow-x: none;
+  @include body-text;
+}
+
+html {
+  background-color: $divider-color;
+}
+
+body {
+  min-height: 100%;
+  top: 0;
+  position: absolute;
+  width: 100%;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+}
+
+h1 {
+  @include title-text;
+}
+
+h2 {
+  @include subhead-text;
+}
+
+h3 {
+  @include body-bold-text;
+}
+
+a {
+  color: inherit;
+  cursor: pointer;
+
+  &:hover {
+    color: $accent;
+    text-decoration: none;
+    @include ease;
+  }
+}
+
+* {
+  outline: none;
+  box-sizing: border-box;
+}
+
+
+#main-content {
+  margin: auto;
+  height: 100%;
+  padding-top: $nav-height;
+  color: $text-color;
+  position: absolute;
+  width: 100%;
+  overflow-x: none;
+}
+
+#background-filter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(245, 246, 247, 0);
+  z-index: -1;
+}
+
+////////////////////////////////////////////////////////////////////////
+//
+//  Utility styling
+//
+////////////////////////////////////////////////////////////////////////
+
+.container {
+  width: 100%;
+}
+
+.ngdialog.ngdialog-theme-default.spinner-container .ngdialog-content {
+  background-color: transparent;
+  box-shadow: none;
+
+  .spinner {
+    margin: 0 auto;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 10px;
+  }
+
+  .spinner > div {
+    background-color: $text-light-color;
+    height: 100%;
+    margin: 2px;
+    width: 4px;
+    display: inline-block;
+
+    -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+    animation: stretchdelay 1.2s infinite ease-in-out;
+  }
+
+  .spinner .rect2 {
+    -webkit-animation-delay: -1.1s;
+    animation-delay: -1.1s;
+  }
+
+  .spinner .rect3 {
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+  }
+
+  .spinner .rect4 {
+    -webkit-animation-delay: -0.9s;
+    animation-delay: -0.9s;
+  }
+
+  .spinner .rect5 {
+    -webkit-animation-delay: -0.8s;
+    animation-delay: -0.8s;
+  }
+
+  @-webkit-keyframes stretchdelay {
+    0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
+    20% { -webkit-transform: scaleY(1.0) }
+  }
+
+  @keyframes stretchdelay {
+    0%, 40%, 100% {
+      transform: scaleY(0.4);
+      -webkit-transform: scaleY(0.4);
+    }  20% {
+      transform: scaleY(1.0);
+      -webkit-transform: scaleY(1.0);
+    }
+  }
+}
+
+.inline-item-wrap {
+  display: flex;
+
+  > .item {
+    @include center;
+    flex: 1;
+  }
+}
+
+
+span.action {
+  &:hover {
+    cursor: pointer;
+    color: $accent-fallback;
+  }
+}
+
+.center {
+  @include center;
+}
+
+.placeholder {
+  color: $disabled-color;
+}
+
+.ellipsis {
+  @include ellipsis;
+}
+
+
+// Container must be relative!
+.select-slider {
+  @include ease;
+  position:absolute;
+  display: none;
+  bottom: 0;
+  border-bottom: ($spacing / 2) solid $accent;
+  width: 50%;
+
+  &.left {
+    display: block;
+    left: 0;
+  }
+
+  &.right {
+    display: block;
+    left: 50%;
+  }
+}
+
+.page-title {
+  @include elevation(1);
+  @include title-text;
+  width: 100%;
+  padding: $spacing * 2;
+}
+
+////////////////////////////////////////////////////////////////////////
+//
+//  Bootstrap overrides
+//
+////////////////////////////////////////////////////////////////////////
+
+.container-fluid {
+  padding-right:0px;
+  padding-left:0px;
+}
+
+.row {
+  margin: 0;
+  padding: 0;
+
+  [class*='col-'] {
+    padding-right:0px;
+    padding-left:0px;
+  }
+}

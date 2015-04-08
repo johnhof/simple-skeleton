@@ -1,0 +1,20 @@
+{
+  "port" : 9000,
+  "github_auth" : {
+    "clientId" : "8540d0f315388928db85",
+    "clientSecret" : "7fb1e2d9ae244478b2c11bfed07b06e4e077d15d"
+  },
+  "path" : {
+    "app"   : "app",
+    "bower" : "bower_components",
+    "dist"  : "dist"
+  },
+  "staticMap" : {
+    "/images"           : "/dist/images",
+    "/scripts"          : "/dist/scripts",
+    "/styles"           : "/dist/styles",
+    "/views"            : "/dist/views",
+    "/favicon.ico"      : "/dist/favicon.ico",
+    "/bower_components" : "/bower_components"
+  }
+}

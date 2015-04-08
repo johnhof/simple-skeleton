@@ -1,0 +1,111 @@
+@import 'variables';
+
+
+////////////////////////////////////////////////////////////////////////
+//
+//  cards
+//
+////////////////////////////////////////////////////////////////////////
+
+
+.card {
+  background-color: $base-color;
+  border-radius: 2px;
+
+
+  .content {
+    padding: $spacing * 2;
+  }
+
+  .actions {
+    @include button-text;
+    border-top: $border;
+    width: 100%;
+    display: flex;
+
+    .confirm {
+      color: $accent;
+    }
+
+    > div, > span {
+      padding: ($spacing * 1.5) ($spacing * 3);
+      cursor: pointer;
+      min-width: 50px;
+      text-align: center;
+
+      &:hover {
+        background-color: $filter-color;
+      }
+    }
+  }
+}
+
+
+////////////////////////////////////////////////////////////////////////
+//
+//  lists
+//
+////////////////////////////////////////////////////////////////////////
+
+
+.vertical-list {
+  overflow-y: auto;
+
+  .list-row {
+    padding: $spacing;
+    border-bottom: 1px solid $divider-color;
+    display: flex;
+
+    &:hover {
+      background-color: $filter-color;
+    }
+  }
+}
+
+
+////////////////////////////////////////////////////////////////////////
+//
+//  Buttons
+//
+////////////////////////////////////////////////////////////////////////
+
+.plus-button {
+  $size: 50px;
+  @include elevation(1);
+  @include button-text();
+  @include center();
+  @include ease(0.25s);
+  border-radius: 50%;
+  background: $accent;
+  color: $text-light-color;
+  height: $size;
+  width: $size;
+  cursor: pointer;
+  border: 0;
+  position: absolute;
+  bottom: -($size / 2);
+  right: $spacing;
+
+  &[type="submit"], &[active="true"] {
+    background: $accent;
+    color: $text-light-color;
+    outline: 0;
+  }
+
+  &:hover {
+    @include elevation(2);
+    position: absolute;
+    color: $text-light-color;
+  }
+
+  &:after {
+    @include display-large-text;
+    @include center;
+    position: absolute;
+    font-weight: 300;
+    content: "+";
+    height: 100%;
+    width: 100%;
+    left: 0;
+  }
+}

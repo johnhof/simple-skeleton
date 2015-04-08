@@ -1,0 +1,18 @@
+@import 'variables';
+
+#new-user-content {
+  form {
+    width: 90%;
+    margin: auto;
+    max-width: ($spacing * 100);
+    margin-top: 5%;
+
+    input {
+      margin: $spacing auto ($spacing * 2);
+    }
+
+    .inline-item-wrap {
+      margin-top: ($spacing * 1.5);
+    }
+  }
+}

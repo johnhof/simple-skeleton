@@ -1,0 +1,161 @@
+@import 'variables';
+
+.navbar {
+  @include elevation(2);
+  z-index: 1000;
+  position: fixed;
+  height: $nav-height;
+
+  &.navbar-default {
+    border: 0;
+    background-color: $primary;
+    color: $text-light-color;
+
+    .container {
+      color: $text-light-color;
+
+      // header text
+      .navbar-header {
+        color: $text-light-color;
+
+        a {
+          @include center();
+          color: $text-light-color;
+          height: $nav-height;
+
+          &.flush {
+            padding: 25px 0;
+          }
+
+          &:hover, &:focus {
+            color: inherit;
+          }
+        }
+      }
+
+     .open > a {
+      @include center();
+      background-color: inherit;
+
+      &:hover, &:focus {
+        color: inherit;
+      }
+    }
+
+      ul li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+
+        a {
+          @include center();
+          color: inherit;
+        }
+      }
+
+      .collapse ul.dropdown-menu {
+        height: initial;
+        border-radius: 0;
+        padding: 0;
+        border: 0;
+        width: 100%;
+        min-width: 0;
+        @include elevation(2);
+
+        li {
+          border-bottom:1px solid $divider-color;
+
+          &:last-of-type {
+            border-bottom: 0;
+          }
+
+          a {
+            @include center();
+            width: 100%;
+            color: $text-color;
+
+            &:hover {
+              background-color: inherit;
+            }
+          }
+        }
+      }
+
+      //
+      // links
+      //
+
+      // desktop header
+      .collapse {
+        @media (min-width: 768px) {
+          a {
+            @include center();
+            height: $nav-height;
+
+            &:hover {
+            }
+
+            &.flush {
+              @include center();
+
+              &:first-of-type {
+                padding-left: 15px;
+              }
+
+              &:last-of-type {
+                padding-right: 15px;
+              }
+            }
+          }
+
+          ul {
+            height: $nav-height;
+            float: right;
+          }
+        }
+      }
+
+      .navbar-toggle {
+        border-color: transparent;
+        border-radius: 0;
+        margin: $spacing * 1.5;
+
+        .icon-bar {
+          background-color: $text-light-color;
+        }
+
+        &:hover, &:focus {
+          background-color: transparent;
+        }
+
+        &:not(.collapsed) {
+          .icon-bar {
+            background-color: $accent;
+
+            &:nth-of-type(even) {
+              opacity: 0;
+            }
+          }
+        }
+      }
+
+      // mobile dropdown
+      .navbar-collapse {
+        &.collapsing, &.collapse.in {
+
+          @media (max-width: 768px) {
+            background: $base-color;
+            box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15);
+
+            a {
+              @include center();
+              color: $text-color;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

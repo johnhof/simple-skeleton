@@ -1,0 +1,23 @@
+@import 'variables';
+
+#home-content {
+
+  .user {
+    display: flex;
+
+    h3 {
+      flex: 1;
+      margin-right: $spacing;
+    }
+
+    span {
+      flex: 2;
+    }
+  }
+
+  .empty-message {
+    a {
+      margin-left: $spacing;
+    }
+  }
+}
