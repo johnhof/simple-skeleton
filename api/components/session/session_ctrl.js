@@ -22,11 +22,17 @@ module.exports = {
       } else if (!user) {
         return next(Err(info));
       } else {
-        return res.send({
-          _id     : user._id,
-          name    : user.name,
-          email   : user.email,
-          created : user.created
+        req.logIn(user, { session: true }, function (err) {
+          if (err) {
+            return next(err);
+          } else {
+            return res.send({
+              _id     : user._id,
+              name    : user.name,
+              email   : user.email,
+              created : user.created
+            });
+          }
         });
       }
     })(req, res, next);
